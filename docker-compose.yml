@@ -1,4 +1,5 @@
 x-base_service: &base_service
+    network_mode: host
     ports:
       - "${WEBUI_PORT:-7860}:7860"
     volumes:
@@ -22,6 +23,7 @@ services:
     profiles: ["download"]
     volumes:
       - *v1
+    network_mode: host
 
   auto: &automatic
     <<: *base_service
